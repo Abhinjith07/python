@@ -1,0 +1,30 @@
+{% extends 'dashboard.html' %}
+
+{% block content %}
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">sl number</th>
+      <th scope="col">TITLE</th>
+      <th scope="col">SUBJECT</th>
+
+    </tr>
+  </thead>
+  <tbody>
+
+  {% for i in data %}
+    <tr>
+
+      <td>{{forloop.counter}}</td>
+      <td>{{i.title}}</td>
+      <td>{{i.subject}}</td>
+      <td><a href = "{% url 'update' i.id %}" type="button" class="btn btn-success">Update</a></td>
+      <td><a href = "{% url 'delete' i.id %}" type="submit" class="btn btn-primary">Delete</a></td>
+    </tr>
+
+
+   {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
